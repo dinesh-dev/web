@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aliens Abduction</title>
+ <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+<link href="jquery-mobile/jquery.mobile-1.3.0.min.css" rel="stylesheet" type="text/css">
+<link href="styles/custome.css" rel="stylesheet" type="text/css">
+<script src="jquery-mobile/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.3.0.min.js" type="text/javascript"></script>
+
+ <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>  
+  <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script> 
+ 
+
+
+</head>
+
+<body>
+
+
+<div data-role="page" id="Page1">
+
+  <div data-role="header" >
+  <div id="headertext" >
+    <h1 class="ui-header" style="float:left" > Aliens abducted me</h1>
+    </div>
+    <div id = "headerimage">
+    <img src="images/aliens1.png" width="80" height="80"  alt="Aliens Abducted Me" />
+    </div>
+    
+  </div>
+  
+  
+  <div data-role="content">
+<!-- ***************************************************-->
+ <section>
+
+
+
+<form>
+
+<p>
+<div class="ui-field-contain">
+  <label>First Name: </label>
+  <br>
+  <input name= "firstname" type="text" autofocus required placeholder=" First Name" value="" id="firstname"> <br>
+  
+  <label>Middle Name: </label>
+  <br>
+  <input name="middlename" type="text" disabled><- disabled <br>
+  
+  <label>Last Name: </label>
+  <br>
+  <input name="lastname" type="text" maxlength="25" required placeholder=" Last Name"> <br>
+  
+  <label>Email: </label>
+  <br>
+  <input name="email" type="email" required placeholder=" Email"><br>
+  
+  <label>When did it happen?  </label>
+  <br>
+  <input name="whenithappened" type="text" placeholder="  YYYY-MM-DD"><br>
+  
+  <label>How long were you gone?</label>
+  <br>
+  <input name="howlong" type="text" placeholder=" How long were you gone?"/><br>
+  
+  <label>How many did you see?</label>
+  <br>
+  <input name="howmany" type="text" placeholder=" How many did you see?"/><br>
+  
+  <label for="aliendescription">Describe them:</label>
+  <br>
+  <input type="text" name="aliendescription" size="32" placeholder=" Describe them" /><br>
+  
+  <label for="whattheydid">What did they do to you?</label>
+  <br>
+  <input type="text" name="whattheydid" size="32" placeholder=" What did they do to you?" /><br>
+  
+  </div>
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup" data-type="horizontal">
+    <legend>Have you seen my dog Fang?</legend>
+    <input type="radio" name="fangspotted" id="fangspotted_0" value="yes" />
+    <label for="fangspotted_0">Yes</label>
+    <input type="radio" name="fangspotted" id="fangspotted_1" value="no" />
+    <label for="fangspotted_1">No</label>
+  </fieldset>
+</div>
+</p>
+<img src="images/fang.jpg" width="100" height="175"
+alt="My abducted dog Fang." /><br><br>
+  
+  <label for="other">Anything else you want to add?</label>
+  <textarea name="other" placeholder="Anything else you want to add?" ></textarea>
+  <br><br>
+  
+
+<input type="submit" data-inline="true" value="Submit">
+</form>
+
+
+ 
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript">
+    
+	$('form').submit(function(){
+		var postData = $(this).serialize();
+		
+		$.ajax({
+			type: 'POST',
+			data: postData,
+			url: 'http://dineshonline.tk/App/aliens/conc.php',
+			success: function(data){
+				console.log(data);
+				alert('Your submission was successfully added');
+			},
+			error: function(){
+				console.log(data);
+				alert('There was an error adding your submission');
+			}
+		});
+		
+		return false;
+	});
+		
+    
+
+  </script>
+</article>
+</section>
+
+ 
+  
+ <!-- ***************************************************--> 
+  
+  
+  
+  </div>
+  
+  
+  
+  <div data-role="footer">
+  <h3>Footer</h3>
+  </div>
+</div>
+</body>
+</html>
